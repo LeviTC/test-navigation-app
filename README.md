@@ -1,50 +1,78 @@
-# Welcome to your Expo app 👋
+# navigation-app
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicación de ejemplo con **Expo Router** (enrutado por archivos) que combina **Drawer**, **Tabs** y **Stack** para practicar navegación anidada en React Native.
 
-## Get started
+## Requisitos
 
-1. Install dependencies
+- [Node.js](https://nodejs.org/) (LTS recomendado)
+- [npm](https://www.npmjs.com/) (incluido con Node)
+- Para probar en dispositivo: [Expo Go](https://expo.dev/go) o un emulador (Android Studio / Xcode)
 
-   ```bash
-   npm install
-   ```
+## Instalación
 
-2. Start the app
+```bash
+npm install
+```
 
-   ```bash
-   npx expo start
-   ```
+## Scripts
 
-In the output, you'll find options to open the app in a
+| Comando        | Descripción                          |
+|----------------|--------------------------------------|
+| `npm start`    | Inicia el servidor de desarrollo Expo |
+| `npm run android` | Abre en Android (con emulador/dispositivo) |
+| `npm run ios`     | Abre en iOS (solo macOS + Xcode)    |
+| `npm run web`     | Abre en navegador                   |
+| `npm run lint`    | Ejecuta ESLint (`expo lint`)        |
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Cómo ejecutar
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+```bash
+npm start
+```
 
-## Get a fresh project
+En la terminal de Expo puedes elegir abrir en web, emulador o escanear el QR con Expo Go.
 
-When you're ready, run:
+## Stack técnico
+
+- **Expo** ~54 y **expo-router** ~6 (entrada: `expo-router/entry` en `package.json`)
+- **React Native** y **React** 19
+- **React Navigation** (drawer, tabs, native stack vía Expo Router)
+- **NativeWind** v4 y **Tailwind CSS** para estilos (`global.css` importado en `app/_layout.tsx`)
+
+## Estructura de rutas (`app/`)
+
+El archivo `app/index.tsx` redirige a la pantalla inicial (`/home`). El resto del flujo vive bajo grupos de rutas (carpetas entre paréntesis no aparecen en la URL, solo organizan layouts).
+
+Resumen del árbol principal:
+
+- **`app/_layout.tsx`**: layout raíz con `Slot` e import de estilos globales.
+- **`app/(drawer)/`**: **Drawer** (`expo-router/drawer`), con pantallas como usuario y agenda, y el grupo de tabs.
+- **`app/(drawer)/(tabs)/`**: **Tabs** (barra inferior); incluye el tab del **stack** y otras pestañas (por ejemplo inicio y favoritos).
+- **`app/(drawer)/(tabs)/(stack)/`**: **Stack** con Home, Products, Profile, Settings y detalle dinámico `products/[id]`.
+
+Los datos de ejemplo de productos suelen estar en `data/` (por ejemplo `products.data` referenciado desde las pantallas de productos).
+
+## Configuración de la app
+
+- **`app.json`**: nombre, iconos, splash y **scheme** `navigationapp` (útil para deep links).
+- **Typed routes** y **React Compiler** están habilitados como experimentos en `app.json` (`experiments`).
+
+## Recursos
+
+- [Documentación de Expo](https://docs.expo.dev/)
+- [Expo Router](https://docs.expo.dev/router/introduction/)
+- [React Navigation](https://reactnavigation.org/)
+
+## Proyecto desde cero (plantilla)
+
+Si quieres resetear el árbol `app/` al estado plantilla del generador, el proyecto incluye:
 
 ```bash
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+(Revisa el script en `scripts/reset-project.js` antes de ejecutarlo; mueve el código actual a una carpeta de ejemplo.)
 
-## Learn more
+## Licencia
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Privado (`"private": true` en `package.json`).

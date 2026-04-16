@@ -11,9 +11,21 @@ const DrawerLayout = () => {
         sceneStyle: {
           backgroundColor: '#fff',
         },
+        // headerShown: false,
       }}
       drawerContent={CustomDrawer}
     >
+      <Drawer.Screen 
+        name="(tabs)"
+        options={{
+          headerShown: false,
+          drawerLabel: 'Tabs',
+          title: 'Tabs',
+          drawerIcon(props) {
+            return <Ionicons name="apps" size={18} color="black" />
+          },
+        }}
+      />
       <Drawer.Screen
         name="user/index" 
         options={{

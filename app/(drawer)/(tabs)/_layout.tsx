@@ -5,13 +5,13 @@ const TabsLayout = () => {
   return (
     <Tabs screenOptions={{ 
         tabBarActiveTintColor: '#49129C', 
-        headerShown: false,
       }}
     >
       <Tabs.Screen 
         name="(stack)"
         options={{
-          tabBarIcon: ({ color, size }) => (
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
             <FontAwesome name="bars" color={color} size={28} />
           ),
         }}
@@ -21,7 +21,7 @@ const TabsLayout = () => {
         name="home/index" 
         options={{ 
           title: 'Home',
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ color }) => (
             <FontAwesome name="home" color={color} size={28} />
           ),
         }}
@@ -30,8 +30,8 @@ const TabsLayout = () => {
         name="favorites/index" 
         options={{ 
           title: 'Favorites',
-          tabBarIcon: ({ color, size }) => (
-          <FontAwesome name="heart" color={color} size={28} />
+          tabBarIcon: ({ color }) => (
+          <FontAwesome name="star" color={color} size={28} />
         ),
       }} />
     </Tabs>

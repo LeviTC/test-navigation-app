@@ -63,13 +63,6 @@ Los datos de ejemplo de productos suelen estar en `data/` (por ejemplo `products
 - [Expo Router](https://docs.expo.dev/router/introduction/)
 - [React Navigation](https://reactnavigation.org/)
 
-## Proyecto desde cero (plantilla)
-
-Si quieres resetear el árbol `app/` al estado plantilla del generador, el proyecto incluye:
-
-```bash
-npm run reset-project
-```
 
 (Revisa el script en `scripts/reset-project.js` antes de ejecutarlo; mueve el código actual a una carpeta de ejemplo.)
 

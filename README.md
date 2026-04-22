@@ -1,5 +1,86 @@
 # navigation-app
 
+<p align="center">
+  <b>Expand the section for your language</b> · <b>Despliega la sección de tu idioma</b>
+</p>
+
+<details>
+<summary><b>English</b></summary>
+
+Sample app with **Expo Router** (file-based routing) that combines **Drawer**, **Tabs**, and **Stack** to practice nested navigation in React Native.
+
+## Requirements
+
+- [Node.js](https://nodejs.org/) (LTS recommended)
+- [npm](https://www.npmjs.com/) (comes with Node)
+- To test on a device: [Expo Go](https://expo.dev/go) or an emulator (Android Studio / Xcode)
+
+## Installation
+
+```bash
+npm install
+```
+
+## Scripts
+
+| Command         | Description                                      |
+|-----------------|--------------------------------------------------|
+| `npm start`     | Start the Expo development server                 |
+| `npm run android` | Open on Android (emulator or device)           |
+| `npm run ios`   | Open on iOS (macOS + Xcode only)                 |
+| `npm run web`   | Open in the browser                              |
+| `npm run lint`  | Run ESLint (`expo lint`)                          |
+
+## How to run
+
+```bash
+npm start
+```
+
+In the Expo terminal you can open on web, emulator, or scan the QR code with Expo Go.
+
+## Tech stack
+
+- **Expo** ~54 and **expo-router** ~6 (entry: `expo-router/entry` in `package.json`)
+- **React Native** and **React** 19
+- **React Navigation** (drawer, tabs, native stack via Expo Router)
+- **NativeWind** v4 and **Tailwind CSS** for styles (`global.css` imported in `app/_layout.tsx`)
+
+## Route structure (`app/`)
+
+The `app/index.tsx` file redirects to the initial screen (`/home`). The rest of the flow lives under route groups (parentheses folders do not appear in the URL; they only organize layouts).
+
+Main tree overview:
+
+- **`app/_layout.tsx`**: root layout with `Slot` and global style import.
+- **`app/(drawer)/`**: **Drawer** (`expo-router/drawer`), with screens such as user and schedule, plus the tab group.
+- **`app/(drawer)/(tabs)/`**: **Tabs** (bottom bar); includes the **stack** tab and other tabs (e.g. home and favorites).
+- **`app/(drawer)/(tabs)/(stack)/`**: **Stack** with Home, Products, Profile, Settings, and dynamic detail `products/[id]`.
+
+Sample product data is usually in `data/` (e.g. `products.data` as referenced from product screens).
+
+## App configuration
+
+- **`app.json`**: name, icons, splash, and **scheme** `navigationapp` (useful for deep links).
+- **Typed routes** and **React Compiler** are enabled as experiments in `app.json` (`experiments`).
+
+## Resources
+
+- [Expo documentation](https://docs.expo.dev/)
+- [Expo Router](https://docs.expo.dev/router/introduction/)
+- [React Navigation](https://reactnavigation.org/)
+
+(Review the script in `scripts/reset-project.js` before running it; it moves the current code into a sample folder.)
+
+## License
+
+Private (`"private": true` in `package.json`).
+
+</details>
+
+<details>
+<summary><b>Español</b></summary>
+
 Aplicación de ejemplo con **Expo Router** (enrutado por archivos) que combina **Drawer**, **Tabs** y **Stack** para practicar navegación anidada en React Native.
 
 ## Requisitos
@@ -16,13 +97,13 @@ npm install
 
 ## Scripts
 
-| Comando        | Descripción                          |
-|----------------|--------------------------------------|
-| `npm start`    | Inicia el servidor de desarrollo Expo |
-| `npm run android` | Abre en Android (con emulador/dispositivo) |
-| `npm run ios`     | Abre en iOS (solo macOS + Xcode)    |
-| `npm run web`     | Abre en navegador                   |
-| `npm run lint`    | Ejecuta ESLint (`expo lint`)        |
+| Comando           | Descripción                                    |
+|-------------------|------------------------------------------------|
+| `npm start`       | Inicia el servidor de desarrollo Expo         |
+| `npm run android` | Abre en Android (con emulador/dispositivo)  |
+| `npm run ios`     | Abre en iOS (solo macOS + Xcode)            |
+| `npm run web`     | Abre en navegador                            |
+| `npm run lint`    | Ejecuta ESLint (`expo lint`)                 |
 
 ## Cómo ejecutar
 
@@ -63,9 +144,10 @@ Los datos de ejemplo de productos suelen estar en `data/` (por ejemplo `products
 - [Expo Router](https://docs.expo.dev/router/introduction/)
 - [React Navigation](https://reactnavigation.org/)
 
-
 (Revisa el script en `scripts/reset-project.js` antes de ejecutarlo; mueve el código actual a una carpeta de ejemplo.)
 
 ## Licencia
 
 Privado (`"private": true` en `package.json`).
+
+</details>
